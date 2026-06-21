@@ -7,3 +7,6 @@ class UploadSpeedResponse(BaseModel):
 
 class PingResponse(BaseModel):
     status:str = Field(...,example="pong",description="Status of the ping")
+    ip:str = Field(..., example="123.123.45.11")
+    isp:str = Field(..., example= "SLT")
+    location:str = Field(..., example= "Colombo, Sri Lanka ")
