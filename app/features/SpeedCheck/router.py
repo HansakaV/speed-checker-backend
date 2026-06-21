@@ -32,5 +32,10 @@ async def upload_speed_test(request:Request):
         }   
     }
     
-
+#ping/latency Speed Test Endpoint
+@router.get("/ping",status_code=status.HTTP_200_OK)
+async def ping_speed_test():
+    return{
+        "status":"pong"
+    }   
           
