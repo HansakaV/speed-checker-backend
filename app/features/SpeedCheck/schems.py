@@ -1,4 +1,4 @@
-from pyadantic import BaseModel, Field
+from pydantic import BaseModel, Field
 
 class UploadSpeedResponse(BaseModel):
     status:str = Field(...,example="Success",description="Status of the upload")
