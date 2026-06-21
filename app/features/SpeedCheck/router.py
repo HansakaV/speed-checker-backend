@@ -32,8 +32,14 @@ async def upload_speed_test(request:Request):
     
 #ping/latency Speed Test Endpoint
 @router.get("/ping",response_model=schems.PingResponse,status_code=status.HTTP_200_OK)
-async def ping_speed_test():
+async def ping_speed_test(request: Request):
+    client_ip = utils.get_client_ip(request)
+    network_info = utils.detect_network_info(client_ip) 
+        
     return schems.PingResponse(
-        status="pong"
+        status="pong",
+        ip=network_info.get("ip", "Unknown"),
+        isp=network_info.get("isp", "Unknown"),
+        location=network_info.get("location", "Unknown")
     )   
           
