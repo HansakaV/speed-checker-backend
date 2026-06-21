@@ -23,4 +23,14 @@ async def upload_speed_test(request:Request):
     body_bytes = 0
     async for chunk in request.stream():
         body_bytes += len(chunk)
+    
+    return{
+         "status":"Success",
+        "message":"Data Payload Received Successfully",
+        "data":{
+            "size_in_mb":body_bytes/1024/1024
+        }   
+    }
+    
+
           
